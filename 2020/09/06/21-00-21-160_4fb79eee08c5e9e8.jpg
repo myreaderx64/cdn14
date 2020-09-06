@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <title>The Security Skeptic</title>
+
+    <meta name="generator" content="//www.typepad.com/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="keywords" content="Internet Security, ICANN, DNS, anti-hacking, cybercrime, IDS, intrusion detection, anti-malware, firewall, anti-phishing, wireless security, phishing, authentication, 419 scams, fake av, ipv6, SOPA, privacy, Mac OS" />
+        <meta name="description" content="Dave Piscitello is an Internet Security practitioner, technology evangelist and technology writer. He blogs as The Security Skeptic on a variety of security related topics. " />
+
+        <link rel="stylesheet" href="https://static.typepad.com/.shared/themes/common/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://static.typepad.com/.shared/css/responsive-banner.css">
+
+    <link rel="stylesheet" href="https://static.typepad.com/.shared/themes/common/bxslider.css">
+    <link rel="stylesheet" href="https://static.typepad.com/.shared/css/widgets.css">
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="https://www.securityskeptic.com/styles.css?v=6" type="text/css" media="screen" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+    <link rel="canonical" href="https://www.securityskeptic.com/" />
+
+        <link rel="alternate" type="application/atom+xml" title="Posts on 'The Security Skeptic' (Atom)" href="https://www.securityskeptic.com/atom.xml" />
+        <link rel="alternate" type="application/rss+xml" title="Posts on 'The Security Skeptic' (RSS 1.0)" href="https://www.securityskeptic.com/index.rdf" />
+        <link rel="alternate" type="application/rss+xml" title="Posts on 'The Security Skeptic' (RSS 2.0)" href="https://www.securityskeptic.com/rss.xml" />
+
+        <script type="text/javascript">
+                var TPApp = {};
+                TPApp.app_uri = "//www.typepad.com/";
+        </script>
+        <script type="text/javascript" src="/.shared/js/yui/yahoo-dom-event.js,/js/app/thumbnail-gallery-min.js,/js/app/flyouts-min.js"></script>
+
+
+
+
+
+
+<script type="text/javascript">
+  WebFontConfig = {
+    google: { families: [ 'Asap' ] }
+  };
+  (function() {
+    var wf = document.createElement('script');
+    wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+      '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+    wf.type = 'text/javascript';
+    wf.async = 'true';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(wf, s);
+  })(); </script>
+
+
+<meta property="og:title" content="The Security Skeptic" />
+<meta property="og:site_name" content="The Security Skeptic" />
+<meta property="og:type" content="blog" />
+<meta property="og:url" content="https://www.securityskeptic.com/" />
+<meta property="og:description" content="The Security Skeptic blogs about all matters related to Internet Security, from domain names (DNS), firewalls and network security to phishing, malware and social engineering." />
+<meta property="fb:admins" content="" />
+<meta property="og:image" content="https://up4.typepad.com/6a0120a55f18a4970c0120a55f5b96970c-220si" />
+
+
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-225723-36', 'auto', {'name': 'Typepad'}, {'allowLinker': true} );  // Separate tracker for Typepad.
+ga('Typepad.require', 'linker');
+ga('Typepad.linker:autoLink', ['none']);
+ga('Typepad.set', 'dimension1', '6a0120a55f18a4970c0120a55f1b4e970c');
+ga('Typepad.set', 'dimension2', 'index');
+ga('Typepad.send', 'pageview');
+</script>
+
+
+
+
+</head>
+<body id="top" class="two-column-right index fullposts">
+
+<div id="bannav-wrap">
+
+
+                <div id="st-container" class="st-container">
+			<nav class="st-menu st-effect-1 font-nav" id="menu-1">
+                                <button class="close-side-menu"><i class="fas fa-times"></i></button>
+                                <ul>
+
+        <li class="icon icon-data"><a href="https://www.securityskeptic.com/">
+        <i class="fas fa-home"></i>
+        
+        
+        
+        Home</a></li>
+        <li class="icon icon-data"><a href="https://www.securityskeptic.com/archives.html">
+        
+        <i class="fas fa-archive"></i>
+        
+        
+        Archives</a></li>
+        <li class="icon icon-data"><a href="https://profile.typepad.com/6p0120a55f18a4970c">
+        
+        
+        <i class="fas fa-user"></i>
+        
+        Profile</a></li>
+        <li class="icon icon-data"><a href="https://www.securityskeptic.com/atom.xml">
+        
+        
+        
+        <i class="fas fa-rss"></i>
+        Subscribe</a></li>
+
+                                </ul>
+			</nav>
+                </div>
+
+
+
+   
+        <header class="main">
+            <div id="banner-image-container" class="container banner-text-container" style="border:0;">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="content">
+
+                            <div id="banner">
+
+                               <div id="banner-title-wrapper"><span id="banner-title"><h1><a href="https://www.securityskeptic.com/">The Security Skeptic</a></h1></span></div>
+                               <div id="banner-desc-wrapper"><span id="banner-desc"><h2>The Security Skeptic blogs about all matters related to Internet Security, from domain names (DNS), firewalls and network security to phishing, malware and social engineering.</h2></span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+   
+            <div id="icons-container" class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="content">
+
+
+<div class="type-text" style="display:none;" id="st-trigger-effects">
+                            <button data-effect="st-effect-1" class="menu-icon open-side-menu">
+                                <i class="fas fa-bars"></i>
+                            </button>
+</div>
+
+
+
+
+<!--navbar-->
+
+
+      <div class="navtext font-nav">
+
+      
+
+        <a class="nav-link" href="https://www.securityskeptic.com/">Home</a>
+        <a class="nav-link" href="https://www.securityskeptic.com/archives.html">Archives</a>
+        <a class="nav-link" href="https://profile.typepad.com/6p0120a55f18a4970c">Profile</a>
+        <a class="nav-link" href="https://www.securityskeptic.com/atom.xml">Subscribe</a>
+   </div>
+ 
+
+
+
+                        <div id="social" style="display:none;">
+                            <ul>
+
+<li><a class="icon circle fab fa-facebook_page solo" href="https://www.facebook.com/161268910742820" rel="me"></a></li><li><a class="icon circle fab fa-facebook solo" href="https://www.facebook.com/app_scoped_user_id/673457888" rel="me"></a></li><li><a class="icon circle fab fa-linkedin solo" href="https://www.linkedin.com/in/dave%40corecom.com" rel="me"></a></li><li><a class="icon circle fab fa-twitter solo" href="https://twitter.com/securityskeptic" rel="me"></a></li><li><a class="icon circle fab fa-wordpress solo" href="https://securityskeptic.wordpress.com" rel="me"></a></li>
+
+                            </ul>
+                        </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+</div>
+
+    <main id="post-container">
+
+
+
+
+        <section class="normal-slider-wrap">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+
+     <!-- CAROUSEL POSTS -->
+   
+
+
+<style>
+.bx-caption {
+
+bottom:0;
+left:0;
+
+width: 100% !important;
+background: rgba(0, 0, 0, 0.55) !important;
+}
+
+.bx-caption span { text-align: center; }
+
+
+
+
+</style>
+
+<div id="imageslider" style="margin-bottom:50px">
+
+<div class="slider-nav"><span id="slider-prev"></span> <span id="slider-next"></span></div>
+<ul class="bxslider">
+          
+          
+
+<li>
+
+
+<center><div class="nailthumb-container"><a href="https://www.securityskeptic.com/2020/05/online-child-predation-rising-during-covid-lockdown-.html"><img src="/.shared/images/carousel-filler.png" title="Online child predation rising during COVID lockdown " /></a></div></center>
+
+
+
+</li>
+
+          
+      
+          
+
+<li>
+
+
+<center><div class="nailthumb-container"><a href="https://www.securityskeptic.com/2020/03/widespread-issues-with-domain-registration-accountability-have-a-covid-nexus.html"><img src="/.shared/images/carousel-filler.png" title="Widespread Issues with Domain Registration Accountability Have a COVID Nexus" /></a></div></center>
+
+
+
+</li>
+
+          
+      
+          
+
+<li>
+
+
+<center><div class="nailthumb-container"><a href="https://www.securityskeptic.com/2020/03/microsoft-dismantles-global-spam-delivery-infrastructure-necurs.html"><img src="/.shared/images/carousel-filler.png" title="Microsoft dismantles global spam delivery infrastructure (Necurs)" /></a></div></center>
+
+
+
+</li>
+
+          
+      
+          
+
+<li>
+
+
+<center><div class="nailthumb-container"><a href="https://www.securityskeptic.com/2019/10/report-criminal-abuse-of-domain-names-bulk-registration-and-contact-information-access.html"><img src="/.shared/images/carousel-filler.png" title="Report: Criminal Abuse of Domain Names, Bulk Registration and Contact Information Access" /></a></div></center>
+
+
+
+</li>
+
+          
+      
+          
+<li>
+
+
+<center><div class="nailthumb-container"><a href="https://www.securityskeptic.com/2019/09/icann-prepares-for-more-gtlds-has-enough-been-done-to-mitigate-threats-.html"><img src="https://securityskeptic.typepad.com/.a/6a0120a55f18a4970c0240a4d11dd9200b-1024wi" title="ICANN prepares for more gTLDs... has enough been done to mitigate threats? " /></a></div></center>
+
+
+
+</li>
+
+
+          
+      
+</ul>
+</div><!-- imageslider -->
+
+   
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <div class="container postarea">
+            <div class="row pagebody">
+                <div class="col-sm-8">
+                    <div class="left-container"><div class="left-container-inner">
+
+
+
+
+
+
+<!-- FEATURED POST -->
+
+<!-- REGULAR POSTS -->
+
+
+
+    
+
+    
+
+
+
+
+<!-- entry shared -->
+
+<article class="post entry">
+
+
+
+<!-- DISPLAY FULL POSTS-->
+
+     
+
+       <h2 class="entry-header font-entryheader">
+           
+        <span class="entry-title">
+<a href="https://www.securityskeptic.com/2020/05/online-child-predation-rising-during-covid-lockdown-.html">Online child predation rising during COVID lockdown </a>
+        </span>
+       </h2>
+
+
+
+       <h5 class="date-header font-dateheader">
+           <span class="entry-date"><a href="https://www.securityskeptic.com/2020/05/online-child-predation-rising-during-covid-lockdown-.html">Tuesday, 26 May 2020</a></span>
+       </h5>
+
+
+
+			<div class="entry-body font-entrybody">
+				<p>I attended (remotely) a Council of Europe cybercrime webinar on the impact of COVID on cybercrime last week. One of the most disturbing criminal activities discussed was the rise in reports of online predation.</p>
+<p>The National Center for Missing and Exploited Children (NCMEC) has received 4.2 million reports in April. That’s up 2 million from March 2020 and nearly 3 million from April 2019. (Forbes, 9 May 2020).</p>
+<div class="text_exposed_show">
+<p>This is not surprising - nearly everyone who is connected is spending more time on the Internet - but it&#39;s still terrifying.</p>
+<p>Look to the many government agencies have parental guidelines to help identify child abuse, exploitation or grooming.</p>
+<p>The US FBI (<a data-ft="{&quot;tn&quot;:&quot;-U&quot;}" data-lynx-mode="async" data-lynx-uri="https://l.facebook.com/l.php?u=https%3A%2F%2Fwww.fbi.gov%2Finvestigate%2Fviolent-crime%2Fcac%3Ffbclid%3DIwAR0gPoKjsQ5nh-JTcK4QAeGOrRWOpFR21mZXW8jvViq5DLXD54IlSzHCus8&amp;h=AT3eYirKN9c8y6ZPMNT9eYl5e0FRZG7v2_ctkIISBnNX-9uC8djHUq1HlZAN7Fy7RaHyrBDhiGO6FJGGLbTmkFU7d_JLULuNnZGZgCthcDoHkj4srqb8I2ZnIR61r93ZzWeaN73893fhIbhjNQ25WnOUmScEvU3jQC45Uab6KA" href="https://www.fbi.gov/investigate/violent-crime/cac?fbclid=IwAR0gPoKjsQ5nh-JTcK4QAeGOrRWOpFR21mZXW8jvViq5DLXD54IlSzHCus8" rel="noopener nofollow" target="_blank">https://www.fbi.gov/investigate/violent-crime/cac</a>) has information about grooming, trafficking, sextortion and other abuses. In the UK, the NCA (<a href="https://nationalcrimeagency.gov.uk/what-we-do/crime-threats/child-sexual-abuse-and-exploitation">https://nationalcrimeagency.gov.uk/what-we-do/crime-threats/child-sexual-abuse-and-exploitation</a>) offers similar information</p>
+<p>The US DHA (<a href="https://www.dhs.gov/blog/2011/08/09/protect-your-kids-cyber-predators">https://www.dhs.gov/blog/2011/08/09/protect-your-kids-cyber-predators</a>) shares tips for parents. I also found a helpful guidelines report from UK West Midlands (<a href="https://www.local.gov.uk/sites/default/files/documents/safeguarding-children-and-c8c.pdf">https://www.local.gov.uk/sites/default/files/documents/safeguarding-children-and-c8c.pdf</a>). And you&#39;ll find additional information at Stop.Think.Connect Parent and Educator resources (<a href="https://www.cisa.gov/publication/stopthinkconnect-parent-and-educator-resources">https://www.cisa.gov/publication/stopthinkconnect-parent-and-educator-resources</a>).</p>
+<p>&#0160;</p>
+</div>
+			</div>
+			
+
+			
+
+
+
+
+
+<hr />
+
+
+<div class="entry-footer">
+          <p class="entry-footer-info font-entryfooter"><span class="post-footers">Posted at 09:58 AM in <a href="https://www.securityskeptic.com/all-matters-security/">All matters security</a>, <a href="https://www.securityskeptic.com/stop-think-connect/">Stop Think Connect</a> </span> <span class="separator">|</span> <a class="permalink" href="https://www.securityskeptic.com/2020/05/online-child-predation-rising-during-covid-lockdown-.html">Permalink</a>
+
+ 
+	<span class="separator"> | </span>
+	
+			 <a class="entry-comments" href="https://www.securityskeptic.com/2020/05/online-child-predation-rising-during-covid-lockdown-.html#comments">Comments (0)</a>
+	
+
+
+          </p>
+
+
+          <!-- technorati tags -->
+
+    
+
+
+
+          <!-- post footer links -->
+	<p class="entry-footer-share entry-footer-share-buttons">
+		<span class="entry-footer-links-reblog"><a href="#" class="share-link share-link-reblog" title="Grab this post for your own blog" onclick="b=document.body; TYPEPAD___bookmarklet_domain='https://www.typepad.com/'; TYPEPAD___reblog_entryxid='6a0120a55f18a4970c0263ec1d4946200c'; TYPEPAD___is_reblog = 1; if (b &amp;&amp; !document.xmlVersion) { void ( z=document.createElement('script')); void(z.type='text/javascript'); void(z.src='https://static.typepad.com/.shared/js/qp/loader-combined-min.js'); void(b.appendChild(z));}else{}">Reblog
+ (0)
+</a>
+</span>
+	</p>
+
+
+</div>
+
+
+</article>
+ 
+
+
+
+
+
+
+
+   <div class="bottom-featured"><div class="module-featuredposts module">
+<section class="module-featured">
+  <header>
+  <h2 class="module-header">Spotlight Posts</h2>
+  </header>
+	<div class="module-content">
+     <ul class="divided">
+
+
+<li class="module-list-item">
+<div class="feat-container">
+
+
+
+<div class="feat-text">
+<a href="https://www.securityskeptic.com/2020/03/widespread-issues-with-domain-registration-accountability-have-a-covid-nexus.html">Widespread Issues with Domain Registration Accountability Have a COVID Nexus</a><div class="feat-excerpt">My Interisle partners and colleague Greg Aaron have published a detailed study that measures the effectiveness and impact of ICANN's registration data access policies and procedures. This study reveals widespread problems with access to and the reliability of domain name registration data systems (WHOIS). These failures have real-life security implications, which are being seen in the current wave of cybercrime accompanying the COVID-19 pandemic. In our Press Release I make the comment that, “The COVID-19 pandemic has led to a recent explosion of cybercrime, with thousands of new domain names using terms like ‘covid’ or ‘corona’ being used to perpetrate...</div>
+</div>
+
+</div><!-- feat-container -->
+</li>
+
+
+<li class="module-list-item">
+<div class="feat-container">
+
+
+
+<div class="feat-text">
+<a href="https://www.securityskeptic.com/2019/10/report-criminal-abuse-of-domain-names-bulk-registration-and-contact-information-access.html">Report: Criminal Abuse of Domain Names, Bulk Registration and Contact Information Access</a><div class="feat-excerpt">My Interisle Consulting Group colleague, Dr. Colin Strutt and I have published a report, Criminal Abuse of Domain Names: Bulk Registration and Contact Information Access http://interisle.net/criminaldomainabuse.html In this report, we study "bulk registration misuse" by criminal actors. Bulk registrations refers to the practice of rapidly acquiring domain names, using these in an attack, and abandoning them as if they were throw-away ("burner") phones. These domains are a critical resource for cyber criminals. We use reputation block list (RBL) data to reveal how the use of bulk registrations, coupled with the crippling of registration data access by the ICANN Temp Spec...</div>
+</div>
+
+</div><!-- feat-container -->
+</li>
+
+
+<li class="module-list-item">
+<div class="feat-container">
+
+
+
+<div class="feat-text">
+<a href="https://www.securityskeptic.com/2019/03/facts-figures-whois-policy-changes-impair-blacklisting-defenses.html">Facts & Figures: Whois Policy Changes Impair Blocklisting Defenses</a><div class="feat-excerpt">Two independently conducted studies demonstrate that the onset of masking Whois contact data has had the direct, corresponding, and ongoing effect of reducing the number of blocklisted domains, dramatically undermining the efficiency of this and other security countermeasures.</div>
+</div>
+
+</div><!-- feat-container -->
+</li>
+
+
+<li class="module-list-item">
+<div class="feat-container">
+
+
+
+<div class="feat-text">
+<a href="https://www.securityskeptic.com/2019/02/conservative-abuse-reporting-throws-new-tld-program-under-the-bus.html">Conservative abuse reporting throws new TLD program under the bus</a><div class="feat-excerpt">ICANN has released a January 2019 domain abuse report generated from the Domain Abuse Activity Repor...</div>
+</div>
+
+</div><!-- feat-container -->
+</li>
+
+
+<li class="module-list-item">
+<div class="feat-container">
+
+
+
+<div class="feat-text">
+<a href="https://www.securityskeptic.com/2018/10/apwg-and-m3aawg-survey-finds-icann-whois-changes-impede-cyber-investigations.html">APWG and M3AAWG Survey Finds ICANN WHOIS Changes Impede Cyber Investigations</a><div class="feat-excerpt">The Anti-Phishing Working Group (APWG) and the Messaging, Malware and Mobile Anti-Abuse Working Group (M3AAWG) have collaborated to conduct a survey of cyber investigators and anti-abuse service providers to understand how ICANN’s Temporary Specification for gTLD Registration Data has affected their access and usage of domain name registration information and their ability to mitigate abuse. I served as Principal Investigator for APWG and M3AAWG for this project. I received strong subject matter expertise support from both working groups. From our analysis of 327 survey responses we find that the changes to WHOIS access following ICANN’s implementation of the Temp Spec...</div>
+</div>
+
+</div><!-- feat-container -->
+</li>
+
+     </ul>
+	</div>
+</section>
+</div>
+   </div>
+
+
+       
+       
+       <div class="pager-bottom pager-entries pager content-nav">
+                <div class="pager-inner">
+                        
+
+                        
+                        <a href="https://www.securityskeptic.com/page/2/">
+                        <span class="pager-right">
+                        <span class="pager-label">Next</span>
+                        <i class="fas fa-arrow-circle-right"></i> 
+                        </span></a>
+                        
+                </div>
+        </div>
+        
+        
+ 
+
+
+                    </div></div>
+                </div>
+                <div class="col-sm-4">
+
+                    <aside class="widgets">
+                      <div class="widgets-inner">
+<!-- custom_code.tt --><div class="module-custom_html module">
+    <div class="module-content">
+<a class="twitter-timeline" href="https://twitter.com/securityskeptic" data-widget-id="586529205170675712">Tweets by @securityskeptic</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+    </div>
+</div>
+<!-- end custom_code.tt -->
+<div class="module-search module">
+    <h2 class="module-header">Search</h2>
+    <div class="module-content">
+        <form id="search-blog" method="get" action="https://www.securityskeptic.com/.services/blog/6a0120a55f18a4970c0120a55f1b4e970c/search" class="form-search form-inline" role="search">
+            
+<div class="form-group"><input type="search" name="filter.q" results="5" value="" class="form-control" placeholder="Search" /></div><button type="submit" value="Search" class="btn btn-default">Submit</button>
+
+        </form>
+    </div>
+</div>
+<!-- END Blog Search Module -->
+<!-- user photo -->
+    <div class="module-photo module">
+
+
+     
+
+
+<div class="module-content">
+
+<center>
+<img src="https://securityskeptic.typepad.com/.a/6a0120a55f18a4970c0120a55f5b96970c-150wi" alt="My Photo" class="img-responsive" />
+</center>
+
+</div></div>
+
+<!-- custom_code.tt --><div class="module-custom_html module">
+    <div class="module-content">
+<a href="https://mailhide.recaptcha.net/d?k=01wJiZ_FQ9SHUhwoOmZctIUg==&amp;c=c-QJvDDgJ_1QHe45CmC9xVZD33K33MY5nM8_6L5G2m0=" onclick="window.open('http://mailhide.recaptcha.net/d?k=01wJiZ_FQ9SHUhwoOmZctIUg==&amp;c=c-QJvDDgJ_1QHe45CmC9xVZD33K33MY5nM8_6L5G2m0=', '', 'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=500,height=300'); return false;" title="Reveal this e-mail address">The Skeptic's email address</a>
+<a href="http://exius.net/hotluck.php?name=4995"><!-- triumphal-workstudy --></a><br><!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-54e9e5176eab4079" async="async"></script>
+
+    </div>
+</div>
+<!-- end custom_code.tt -->
+<div class="module-category-cloud module">
+	<h2 class="module-header"><a href="https://www.securityskeptic.com/archives.html">Categories</a></h2>
+	<div class="module-content">
+		<ul class="module-list">
+			<li class="module-list-item cloud-weight-10"><a href="https://www.securityskeptic.com/all-matters-security/">All matters security</a></li>
+			<li class="module-list-item cloud-weight-6"><a href="https://www.securityskeptic.com/anti-malware/">Anti-Malware and Anti-phishing</a></li>
+			<li class="module-list-item cloud-weight-2"><a href="https://www.securityskeptic.com/books/">Books</a></li>
+			<li class="module-list-item cloud-weight-7"><a href="https://www.securityskeptic.com/dns/">Domain names and DNS</a></li>
+			<li class="module-list-item cloud-weight-1"><a href="https://www.securityskeptic.com/espa%C3%B1ol/">Español</a></li>
+			<li class="module-list-item cloud-weight-2"><a href="https://www.securityskeptic.com/firewalls-intrusion-detection-utm/">Firewalls, Intrusion Detection, UTM</a></li>
+			<li class="module-list-item cloud-weight-2"><a href="https://www.securityskeptic.com/guest-authors/">Guest Authors</a></li>
+			<li class="module-list-item cloud-weight-2"><a href="https://www.securityskeptic.com/is-it-spam/">Is it Spam?</a></li>
+			<li class="module-list-item cloud-weight-2"><a href="https://www.securityskeptic.com/macos/">MacOS</a></li>
+			<li class="module-list-item cloud-weight-2"><a href="https://www.securityskeptic.com/malware/">Malware</a></li>
+			<li class="module-list-item cloud-weight-1"><a href="https://www.securityskeptic.com/music/">Music</a></li>
+			<li class="module-list-item cloud-weight-2"><a href="https://www.securityskeptic.com/rants/">Rants</a></li>
+			<li class="module-list-item cloud-weight-5"><a href="https://www.securityskeptic.com/stop-think-connect/">Stop Think Connect</a></li>
+			<li class="module-list-item cloud-weight-3"><a href="https://www.securityskeptic.com/top-infosec-reads/">Top Infosec Reads</a></li>
+			<li class="module-list-item cloud-weight-3"><a href="https://www.securityskeptic.com/webtech/">Web/Tech</a></li>
+			<li class="module-list-item cloud-weight-1"><a href="https://www.securityskeptic.com/weblogs/">Weblogs</a></li>
+		</ul>
+	</div>
+</div>
+
+                      </div>
+                    </aside>
+
+
+                </div>
+            </div>
+
+     
+
+
+<!-- footer -->
+<div id="footer">
+<div class="row well"><div class="col-md-12">
+        <div id="footer-inner">
+          <!-- not attag.weblog footer html -->
+                <ul class="footer-list pkg list-inline font-footer" >
+                        <li class="footer-list-item"><a href="https://www.securityskeptic.com/">The Security Skeptic</a> &bull; </li>
+                        <li class="last-footer-list-item footer-list-item"><a href="http://www.typepad.com/">Powered by Typepad</a></li>
+                </ul>
+        </div>
+        <a href="#top" id="toplink"><div id="footer-toplink">
+           <div id="footer-arrow"><i class="fas fa-arrow-circle-up"></i></div>
+           <div id="footer-top"><span class="footer-top-inner font-footer">Top</span></div>
+        </div></a>
+</div></div>
+</div>
+
+
+     <!-- foot-scripts -->
+          <!-- foot-scripts-1 -->
+    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+
+    <script src="https://static.typepad.com/.shared/themes/common/bootstrap/js/bootstrap.min.js"></script>
+
+
+    <script src="https://static.typepad.com/.shared/js/jquery.bxslider.min.js"></script>
+    <script src="https://static.typepad.com/.shared/js/jquery.nailthumb.min.js"></script>
+      
+          
+<script type="text/javascript">
+(function($) {
+$('.bxslider').bxSlider({
+  captions: true,
+  speed: 1000,
+  pause: 6000,
+  adaptiveHeight: true,
+  auto: true,
+  mode: 'fade',
+  controls: false,
+  pager: true,
+  autoControls: false,
+  autoControlsCombine: false,
+  
+  onSliderLoad: function(){
+
+
+    $("#imageslider").css("visibility", "visible");
+  }//onsliderload
+});//bxslider
+})(jQuery);
+
+// make caption clickable
+(function($) {
+    $('.bxslider li').css('cursor', 'pointer')
+    .click(function() {
+        window.location = $('a', this).attr('href');
+        return false;
+    });
+})(jQuery);
+
+// let side caption manually entered excerpt links be clickable
+(function($) {
+    $('.bxslider li a').css('cursor', 'pointer')
+    .click(function() {
+        window.location = $(this).attr('href');
+        return false;
+    });
+})(jQuery);
+
+</script>
+
+
+      
+
+
+
+
+          
+
+
+
+
+
+          <!-- foot-scripts-2 -->
+    <script src="https://static.typepad.com/.shared/js/classie.js"></script>
+    <script src="https://static.typepad.com/.shared/js/sidebarEffects.js"></script>
+    <script src="https://static.typepad.com/.shared/js/jquery.masonry.min.js"></script>
+    <script src="https://static.typepad.com/.shared/js/imagesloaded.pkgd.min.js"></script>
+    <script src="https://static.typepad.com/.shared/js/jquery.livequery.min.js"></script>
+<script>
+    var j = $.noConflict(true);
+
+
+
+function check_css_size() {
+    if (j("#mysize").css("float") == "right" ){ mod_pos = 'side'; }
+    else if (j("#mysize").css("float") == "none" ){ mod_pos = 'bottom'; }
+}
+
+
+
+        // SCROLL TO TOP
+        (function($) {
+          j('a[href*=#]:not([href=#])').click(function() {
+            if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+              var target = j(this.hash);
+              target = target.length ? target : j('[name=' + this.hash.slice(1) +']');
+              if (target.length) {
+                j('html,body').animate({
+                  scrollTop: target.offset().top
+                }, 1000);
+                return false;
+              }
+            }
+          });
+        })(jQuery);
+
+        // PREV/NEXT ON IA
+        (function($) {
+        j(window).scroll(function() {
+            if (j(this).scrollTop()) {
+                j('#previous_story:hidden').stop(true, true).fadeIn();
+                j('#next_story:hidden').stop(true, true).fadeIn();
+            } else {
+                j('#previous_story').stop(true, true).fadeOut();
+                j('#next_story').stop(true, true).fadeOut();
+            }
+        });
+        })(jQuery);
+
+
+        // SLIDE-IN NAV
+        (function($) {
+        j( ".close-side-menu" ).click(function() {
+            j('#st-container').removeClass('st-menu-open');
+        });
+        })(jQuery);
+
+         //MASONRY
+              
+
+function changeCols() {
+        (function($) {
+              
+                check_css_size();
+                if(mod_pos == 'bottom') {
+                   j('.widgets-inner').addClass('bottomwidgets');
+                     
+                 } else {
+                   j('.widgets-inner').removeClass('bottomwidgets');
+                 }
+              
+        })(jQuery);
+}//function
+
+j(document).ready(function($) {
+   changeCols();
+});
+
+j(window).resize(function( event ) {
+        changeCols();
+});
+
+
+(function($) {
+  j(window).load(function(){
+        var $ctCollContainer = j('.widgets-inner');
+
+           j('.twitter-timeline').closest( ".module" ).height('300px');
+           j('.fb_iframe_widget').closest( ".module" ).height('230px');
+
+           $ctCollContainer.imagesLoaded( function(){
+              $ctCollContainer.masonry({
+                    itemSelector: '.module',
+                    "gutter": 20,
+               });
+
+               var msnry = $ctCollContainer.data('masonry');
+
+               msnry.on( 'layoutComplete', function( msnryInstance, laidOutItems ) {
+                 //console.log('Masonry layout completed on ' + laidOutItems.length + ' items');
+                    
+               });
+
+               msnry.layout();
+                $ctCollContainer.masonry('reloadItems');
+
+            });//end imagesloaded
+      });
+})(jQuery);
+
+
+
+//banner image loaded
+        (function($) {
+        bg = j('#banner').css('background-image');
+
+       if (bg && bg !='none') {
+         var src = bg.replace(/(^url\()|(\)$|[\"\'])/g, '');
+           $img = j('<img>').attr('src', src).on('load', function() {
+              j('#banner-title, #banner-desc').show();
+           });
+        } else {
+              j('#banner-title, #banner-desc').show();
+        }
+        })(jQuery);
+
+//default highlight bar from theme colors
+
+function hexToRgb(hex) {
+   var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    r = parseInt(result[1], 16);
+    g = parseInt(result[2], 16);
+    b = parseInt(result[3], 16);
+    j('.overlay-text').css('background', 'rgba(' + r + ',' + g + ',' + b + ',0.7)');
+}
+hexToRgb("#FFFFFF");
+
+
+//nav-highlight
+(function($){
+  j('.navtext a').each(function() {
+    if (j(this).prop('pathname') == window.location.pathname) {
+      j(this).addClass('currentnav');
+    }
+  });
+})(jQuery);
+
+        </script>
+
+        </div>
+
+    </main>
+
+<div id="mysize" style="display: none"></div>
+
+<script type="text/javascript">
+<!--
+var extra_happy = Math.floor(1000000000 * Math.random());
+document.write('<img src="https://www.typepad.com/t/stats?blog_id=81246621191280396&amp;user_id=&amp;page=' + escape(location.href) + '&amp;referrer=' + escape(document.referrer) + '&amp;i=' + extra_happy + '" width="1" height="1" alt="" style="position: absolute; top: 0; left: 0;" />');
+// -->
+</script>
+
+<!-- Google Analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-11231448-1', 'auto');
+ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+
+
+<!-- Begin disqus Tag -->
+
+<!-- End disqus Tag -->
+</body>
+</html>
+
+
+
+<!-- ph=1 -->
